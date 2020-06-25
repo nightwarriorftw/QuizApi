@@ -1,6 +1,7 @@
+from django.utils import timezone
 from django.shortcuts import get_object_or_404
-from rest_framework import serializers
 
+from rest_framework import serializers
 
 from quizapp.models import (
     CategoryModel,
@@ -8,6 +9,7 @@ from quizapp.models import (
     AnswerModel,
     CategoryModel,
     QuestionModel,
+    Quiz,
 )
 
 
@@ -96,13 +98,12 @@ class QuestionSerializer(serializers.ModelSerializer):
             questionObj = QuestionModel.objects.create(
                 question_text=question.pop('question_text'), question_image=question.pop('question_image', None))
             answerObj = AnswerModel.objects.create(
-                answer_text=answer
+                answer_text=answer.pop('answer_text')
             )
             choices_data = validated_data.pop('choices')
             if categoryObj is not None:
                 obj = QuestionQuizModel.objects.create(
                     category=categoryObj, question=questionObj, answer=answerObj)
-            print(len(choices_data))
             if len(choices_data) > 0:
                 choices = []
                 for choice_data in choices_data:
@@ -115,3 +116,55 @@ class QuestionSerializer(serializers.ModelSerializer):
 
         else:
             return serializers.ValidationError('Fields missing !!')
+
+
+class QuizSerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True)
+
+    class Meta:
+        model = Quiz
+        fields = (
+            'quiz_name',
+            'quiz_start_time',
+            'quiz_end_time',
+            'questions',
+        )
+
+
+class LiveQuizSerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True)
+
+    class Meta:
+        model = Quiz
+        fields = (
+            'quiz_name',
+            'quiz_start_time',
+            'quiz_end_time',
+            'questions',
+        )
+
+
+class PastQuizSerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True)
+
+    class Meta:
+        model = Quiz
+        fields = (
+            'quiz_name',
+            'quiz_start_time',
+            'quiz_end_time',
+            'questions',
+        )
+
+
+class UpcomingQuizSerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True)
+
+    class Meta:
+        model = Quiz
+        fields = (
+            'quiz_name',
+            'quiz_start_time',
+            'quiz_end_time',
+            'questions',
+        )

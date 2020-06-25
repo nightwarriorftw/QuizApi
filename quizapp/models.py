@@ -39,12 +39,11 @@ class QuestionQuizModel(models.Model):
 
 # Quiz
 class Quiz(models.Model):
-    question = models.ManyToManyField(
-        QuestionModel, related_name='question')
+    questions = models.ManyToManyField(
+        QuestionQuizModel, related_name='questions')
     quiz_name = models.CharField(max_length=250)
-    category = models.OneToOneField(CategoryModel, on_delete=models.CASCADE)
-    quiz_start_time = models.TimeField(auto_now=False, auto_now_add=False)
-    quiz_end_time = models.TimeField(auto_now=False, auto_now_add=False)
+    quiz_start_time = models.DateTimeField(auto_now=False, auto_now_add=False)
+    quiz_end_time = models.DateTimeField(auto_now=False, auto_now_add=False)
     quiz_creation_time = models.DateTimeField(auto_now_add=True)
     quiz_updated_time = models.DateTimeField(auto_now=True)
 
