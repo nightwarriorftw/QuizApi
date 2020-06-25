@@ -27,8 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'quizapp',
 
-    #third-party
+    # third-party
     'rest_framework',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +41,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ]
+}
+
 
 ROOT_URLCONF = 'quiz.urls'
 
