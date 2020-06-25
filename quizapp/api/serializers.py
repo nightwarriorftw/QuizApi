@@ -51,9 +51,6 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         category_instance = validated_data.get('category')
-        category = CategoryModel.objects.get(id=self.instance.category.id)
-        category.category_name = category_instance.pop('category_name')
-        category.save()
 
         q_instance = validated_data.pop('question')
         q = QuestionModel.objects.get(id=self.instance.question.id)
@@ -64,25 +61,25 @@ class QuestionSerializer(serializers.ModelSerializer):
 
         answer_instance = validated_data.pop('answer')
         answer = AnswerModel.objects.get(id=self.instance.answer.id)
-        answer_instance.answer_text = answer_instance.pop('answer_text')
+        answer.answer_text = answer_instance.pop('answer_text')
         answer.save()
 
         choices = validated_data.pop('choices', [])
         c = []
         if(len(choices) > 0):
             for choice_data in choices:
-                choice_instance = AnswerModel.objects.filter(
-                   answer_text=choice_data.get('answer_text'))[1]
-                if not choice_instance:
-                    choice_instance = AnswerModel.objects.create(
-                        answer_text=choice_data.get('answer_text'))
+                choice_instance = AnswerModel.objects.create(
+                    answer_text=choice_data.get('answer_text'))
                 choice_instance.answer_text = choice_data.pop('answer_text')
                 choice_instance.save()
                 c.append(choice_instance)
 
         question_instance = QuestionQuizModel.objects.get(
             id=self.instance.id)
-        question_instance.category = category
+
+        categoryaObj, created = CategoryModel.objects.get_or_create(
+            category_name=category_instance.pop('category_name'))
+        question_instance.category = categoryaObj
         question_instance.question = q
         question_instance.answer = answer
         question_instance.choices.set(c)
