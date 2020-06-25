@@ -56,8 +56,26 @@ class QuestionSerializer(serializers.ModelSerializer):
         extra_kwargs = {'choices': {'required': False}}
 
     def create(self, validated_data):
-        # category = validated_data.pop('category', None)
-        # question = validated_data.pop('question', None)
-        # answer = validated_data.pop('answer', None)
-        print(validated_data)
-        return super().create(validated_data)
+        category = validated_data.pop('category')
+        question = validated_data.pop('question')
+        answer = validated_data.pop('answer')
+        categoryObj = CategoryModel.objects.filter(category_name=category)[0]
+        questionObj = QuestionModel.objects.create(
+            question_text=question.pop('question_text'), question_image=question.pop('question_image', None))
+        answerObj = AnswerModel.objects.create(
+            answer_text = answer
+        )
+        choices_data = validated_data.pop('choices')
+        if categoryObj is not None:
+            obj = QuestionQuizModel.objects.create(category=categoryObj, question=questionObj, answer=answerObj)
+        print(len(choices_data))
+        if len(choices_data) > 0 :
+            choices = []
+            for choice_data in choices_data:
+                # choice_id = choice_data.pop('id', None)
+                choice= AnswerModel.objects.create(answer_text=choice_data.pop('answer_text'))
+                print(choice)
+                choices.append(choice)
+            obj.choices.set(choices)
+        
+        return obj
