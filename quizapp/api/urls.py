@@ -6,7 +6,8 @@ from .views import (
     QuizViewset,
     LiveQuizViewset,
     PastQuizViewset,
-    UpcomingQuizViewset
+    UpcomingQuizViewset,
+    QuizTakersViewsets
 )
 
 app_name = 'quizapi'
@@ -18,5 +19,6 @@ router.register('quiz', QuizViewset, basename='quiz'),
 router.register('live', LiveQuizViewset, basename='live'),
 router.register('past', PastQuizViewset, basename='past'),
 router.register('upcoming', UpcomingQuizViewset, basename='upcoming'),
+router.register('score', QuizTakersViewsets, basename='quiztakers')
 
 urlpatterns = router.urls

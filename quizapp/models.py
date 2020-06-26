@@ -60,3 +60,6 @@ class QuizTakers(models.Model):
     answer_count = models.IntegerField(default=0)
     completed = models.BooleanField(default=False)
     completion_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username

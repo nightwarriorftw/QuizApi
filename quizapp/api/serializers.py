@@ -10,8 +10,10 @@ from quizapp.models import (
     CategoryModel,
     QuestionModel,
     Quiz,
+    QuizTakers,
 )
 
+from accounts.api.serializers import UserSerializer
 
 class CategorySerializer(serializers.ModelSerializer):
 
@@ -95,9 +97,9 @@ class QuestionSerializer(serializers.ModelSerializer):
         if category and question and answer:
             categoryObj = CategoryModel.objects.filter(
                 category_name=category.pop('category_name'))[0]
-            questionObj = QuestionModel.objects.create(
+            questionObj, created = QuestionModel.objects.get_or_create(
                 question_text=question.pop('question_text'), question_image=question.pop('question_image', None))
-            answerObj = AnswerModel.objects.create(
+            answerObj, created = AnswerModel.objects.get_or_create(
                 answer_text=answer.pop('answer_text')
             )
             choices_data = validated_data.pop('choices')
@@ -107,7 +109,7 @@ class QuestionSerializer(serializers.ModelSerializer):
             if len(choices_data) > 0:
                 choices = []
                 for choice_data in choices_data:
-                    choice = AnswerModel.objects.create(
+                    choice, created = AnswerModel.objects.get_or_create(
                         answer_text=choice_data.pop('answer_text'))
                     choices.append(choice)
                 obj.choices.set(choices)
@@ -167,4 +169,20 @@ class UpcomingQuizSerializer(serializers.ModelSerializer):
             'quiz_start_time',
             'quiz_end_time',
             'questions',
+        )
+
+class QuizTakerSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    quiz_name = serializers.SerializerMethodField()
+
+    def get_quiz_name(self, obj):
+        return self.instance.id
+
+    class Meta:
+        model = QuizTakers
+        fields = (
+            'id',
+            'user',
+            'quiz_name',
+            'answer_count',
         )
