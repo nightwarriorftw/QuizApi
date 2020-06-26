@@ -14,12 +14,13 @@
 - [License](#lock-license)
 
 ## :beginner: About
-Create and host quizes with the QuizApi (rest api).
-- Question types are MCQ and open text
-- Question will have a text + image
-- User should be able to see list of quizzes (both live and past and
+An API that helps you to host quizes online 
+
+- Question can be of types - MCQ and open text
+- Question can have a text + image
+- User can see list of quizzes (both live and past and
 upcoming)
-- User should be able to attempt quizzes
+- User can attempt quizzes
 
 ## :zap: Usage
 
