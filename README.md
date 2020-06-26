@@ -1,6 +1,6 @@
 # Quiz Api
 
-[![Open Issues](https://img.shields.io/github/issues/nightwarrior-xxx/QuizApi?style=for-the-badge&logo=github)](https://github.com/nightwarrior-xxx/QuizApi/issues) [![Forks](https://img.shields.io/github/forks/nightwarrior-xxx/QuizApi?style=for-the-badge&logo=github)](https://github.com/nightwarrior-xxx/QuizApi/network/members) [![Stars](https://img.shields.io/github/stars/nightwarrior-xxx/QuizApi?style=for-the-badge&logo=reverbnation)](hhttps://github.com/nightwarrior-xxx/QuizApi/stargazers) ![Maintained](https://img.shields.io/maintenance/yes/2020?style=for-the-badge&logo=github) ![Made with Python](https://img.shields.io/badge/Made%20with-Python-blueviolet?style=for-the-badge&logo=python) ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%99%A5-red?style=for-the-badge&logo=open-source-initiative) ![Built with Love](https://img.shields.io/badge/Built%20With-%E2%99%A5-critical?style=for-the-badge&logo=ko-fi) [![Follow Me](https://img.shields.io/twitter/follow/nightwarrior_xx?color=blue&label=Follow%20%40nightwarrior_xx&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?screen_name=nightwarriorftw) [![Telegram](https://img.shields.io/badge/Telegram-Chat-informational?style=for-the-badge&logo=telegram)](https://telegram.me/nightwarriorftw)
+[![Open Issues](https://img.shields.io/github/issues/nightwarrior-xxx/QuizApi?style=for-the-badge&logo=github)](https://github.com/nightwarrior-xxx/QuizApi/issues) [![Forks](https://img.shields.io/github/forks/nightwarrior-xxx/QuizApi?style=for-the-badge&logo=github)](https://github.com/nightwarrior-xxx/QuizApi/network/members) [![Stars](https://img.shields.io/github/stars/nightwarrior-xxx/QuizApi?style=for-the-badge&logo=reverbnation)](hhttps://github.com/nightwarrior-xxx/QuizApi/stargazers) ![Maintained](https://img.shields.io/maintenance/yes/2020?style=for-the-badge&logo=github) ![Made with Python](https://img.shields.io/badge/Made%20with-Python-blueviolet?style=for-the-badge&logo=python) ![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%99%A5-red?style=for-the-badge&logo=open-source-initiative) ![Built with Love](https://img.shields.io/badge/Built%20With-%E2%99%A5-critical?style=for-the-badge&logo=ko-fi) [![Follow Me](https://img.shields.io/twitter/follow/nightwarrior_xx?color=blue&label=Follow%20%40nightwarriorftw&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?screen_name=nightwarriorftw) [![Telegram](https://img.shields.io/badge/Telegram-Chat-informational?style=for-the-badge&logo=telegram)](https://telegram.me/nightwarriorftw)
 
 
 ## :ledger: Index
@@ -97,8 +97,8 @@ python manage.py runserver
 Credit goes to the Author :-
 
 - [Aman Verma](https://nightwarriorftw.netlify.app/)
-- [Github](https://github.com/nightwarriorftw/)
-- [Linkedin](https://www.linkedin.com/in/developer-aman-verma/)
+- Github [@nightwarriorftw](https://github.com/nightwarriorftw/)
+- Twitter [@nightwarriorftw](https://www.twitter.com/nightwarriorftw/)
 
 
 ## :lock: License
