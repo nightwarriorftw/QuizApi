@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 
 from rest_framework import serializers
 
@@ -175,17 +176,18 @@ class UpcomingQuizSerializer(serializers.ModelSerializer):
 
 
 class QuizTakerSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-    quiz_name = serializers.SerializerMethodField()
-
-    def get_quiz_name(self, obj):
-        return self.instance.id
 
     class Meta:
         model = QuizTakers
         fields = (
             'id',
             'user',
-            'quiz_name',
+            'quiz',
             'answer_count',
+            'completed',
         )
+
+    # Custom method
+    def to_representation(self, instance):
+        self.fields['user'] = UserSerializer(read_only=True)
+        return super(QuizTakerSerializer, self).to_representation(instance)

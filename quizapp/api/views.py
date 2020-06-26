@@ -72,4 +72,4 @@ class QuizTakersViewsets(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticated,)
     
     def get_queryset(self):
-        return QuizTakers.objects.filter(user=self.request.user)
+        return QuizTakers.objects.all()
