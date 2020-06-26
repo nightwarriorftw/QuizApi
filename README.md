@@ -23,6 +23,37 @@ upcoming)
 
 ## :zap: Usage
 
+##### Register 
+![Register](./public/register.png)
+
+##### Add Auth Token
+![Token](./public/auth_token.png)
+
+##### Add Question
+![Add quiz](./public/add_question.png)
+
+##### Host a quiz
+![Host quiz](./public/host_quiz.png)
+
+##### Live Quiz List
+![Live quiz](./public/live_quiz.png)
+
+##### Past Quiz List
+![Past quiz](./public/past.png)
+
+##### Upcoming Quiz List
+![Upcoming quiz](./public/Upcoming.png)
+
+##### List of all the quizes
+![List of all quizes](./public/list_of_all_quizes.png)
+
+##### Save score of the user
+![Save score](./public/add_score_of_the_user.png)
+
+##### Get score of the user
+![Get score](./public/get_score_of_user.png)
+
+*Many more features*
 
 ### :nut_and_bolt: Development Environment
 
