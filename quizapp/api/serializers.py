@@ -15,6 +15,7 @@ from quizapp.models import (
 
 from accounts.api.serializers import UserSerializer
 
+
 class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -121,7 +122,8 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class QuizSerializer(serializers.ModelSerializer):
-    questions = QuestionSerializer(many=True)
+    questions = serializers.PrimaryKeyRelatedField(many=True,
+                                                   queryset=QuestionQuizModel.objects.all())
 
     class Meta:
         model = Quiz
@@ -170,6 +172,7 @@ class UpcomingQuizSerializer(serializers.ModelSerializer):
             'quiz_end_time',
             'questions',
         )
+
 
 class QuizTakerSerializer(serializers.ModelSerializer):
     user = UserSerializer()
