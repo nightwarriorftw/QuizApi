@@ -38,14 +38,17 @@ Add `id` of questions in the questions list.
 
 ##### Live Quiz List
 Get the list of live quizes
+
 ![Live quiz](./public/live_quiz.png)
 
 ##### Past Quiz List
 Get the list of past quizes
+
 ![Past quiz](./public/past.png)
 
 ##### Upcoming Quiz List
 Get the list of upcoming quiz
+
 ![Upcoming quiz](./public/Upcoming.png)
 
 ##### List of all the quizes
