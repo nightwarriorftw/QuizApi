@@ -33,22 +33,27 @@ upcoming)
 ![Add quiz](./public/add_question.png)
 
 ##### Host a quiz
+Add `id` of questions in the questions list.
 ![Host quiz](./public/host_quiz.png)
 
 ##### Live Quiz List
+Get the list of live quizes
 ![Live quiz](./public/live_quiz.png)
 
 ##### Past Quiz List
+Get the list of past quizes
 ![Past quiz](./public/past.png)
 
 ##### Upcoming Quiz List
+Get the list of upcoming quiz
 ![Upcoming quiz](./public/Upcoming.png)
 
 ##### List of all the quizes
+Get list of all the hosted quizes
 ![List of all quizes](./public/list_of_all_quizes.png)
 
 ##### Save score of the user
-![Save score](./public/add_score_of_the_user.png)
+![Save score](./public/add_score_of_user.png)
 
 ##### Get score of the user
 ![Get score](./public/get_score_of_user.png)
