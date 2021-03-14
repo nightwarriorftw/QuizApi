@@ -98,7 +98,9 @@ class QuestionSerializer(serializers.ModelSerializer):
         answer = validated_data.pop('answer')
         if category and question and answer:
             categoryObj = CategoryModel.objects.filter(
-                category_name=category.pop('category_name'))[0]
+                category_name=category.pop('category_name')).first()
+            if categoryObj is None:
+                raise serializers.ValidationError({"category": "We don't support this category"})
             questionObj, created = QuestionModel.objects.get_or_create(
                 question_text=question.pop('question_text'), question_image=question.pop('question_image', None))
             answerObj, created = AnswerModel.objects.get_or_create(
