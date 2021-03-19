@@ -4,7 +4,7 @@ cffi==1.14.0
 cryptography==3.2
 Django==3.0.7
 django-rest-knox==4.1.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 Pillow==7.1.2
 pycodestyle==2.6.0
 pycparser==2.20
